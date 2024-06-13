@@ -71,6 +71,7 @@
 				*/
 				mif,cp2ap_active_not_alive = <0>;
 
+				mif_off_during_volte = <1>;
 				/* phandle used for shutdown calls to s5910 clk-buffer*/
 				google,clk-buffer = <&s5910>;
 			};
