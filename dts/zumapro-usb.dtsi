@@ -6,11 +6,32 @@
  */
 #include "google-dts-zuma/zuma-usb.dtsi"
 
+&reserved_memory {
+	xhci_dma_buffer: xhci_dma_buffer@17BB5000 {
+		compatible = "xhci-dma-pool";
+		reg = <0x0 0x17BB5000 0xB000>;
+		no-map;
+	};
+
+	xhci_dma: xhci_dma@17BC0000 {
+		compatible = "xhci-dma-pool";
+		reg = <0x0 0x17BC0000 0x40000>;
+		no-map;
+	};
+
+	xhci_dma_dram: xhci_dma_dram@97000000 {
+		compatible = "xhci-dma-pool";
+		reg = <0x0 0x97000000 0x400000>;
+		no-map;
+	};
+};
+
 &usbdrd_phy0 {
-		phy_eusb_version = <0x701>;
+	phy_eusb_version = <0x701>;
 };
 
 &usbdrd_dwc3 {
+	memory-region = <&xhci_dma>, <&xhci_dma_dram>, <&xhci_dma_buffer>;
 	iommus = <&sysmmu_hsi0>;
 	samsung,iommu-group = <&iommu_group_hsi>;
 
