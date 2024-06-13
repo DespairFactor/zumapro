@@ -13,4 +13,5 @@ exports_files([
     "vendor_dlkm.props.zumapro",
     "vendor_dlkm_modules.zumapro",
     "vendor_kernel_boot_modules.zumapro",
+    "zumapro_defconfig",
 ])
