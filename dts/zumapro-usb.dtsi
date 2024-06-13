@@ -10,3 +10,12 @@
 		phy_eusb_version = <0x701>;
 };
 
+&usbdrd_dwc3 {
+	iommus = <&sysmmu_hsi0>;
+	samsung,iommu-group = <&iommu_group_hsi>;
+
+	/* Device virtual address */
+	#dma-address-cells = <1>;
+	#dma-size-cells = <2>;
+	dma-window = <0x0 0xF 0xFFFFFFFF>;
+};
