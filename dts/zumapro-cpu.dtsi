@@ -43,6 +43,7 @@
 			};
 		};
 
+
 		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,armv9.2";
